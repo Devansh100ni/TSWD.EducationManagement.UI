@@ -38,6 +38,11 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
       
       authService.setUser(user);
 
+      const allowedRoles = route.data['roles'] as string[] | undefined;
+      if (allowedRoles && !allowedRoles.includes(user.role)) {
+        return router.parseUrl('/'); // or redirect to dashboard
+      }
+
       return true;
     } catch (error) {
       authService.handleError(error);

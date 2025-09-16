@@ -24,3 +24,9 @@ a{
 .text-white{
   color: #fff;
 }
+
+.vh-75{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 75vh;
+}

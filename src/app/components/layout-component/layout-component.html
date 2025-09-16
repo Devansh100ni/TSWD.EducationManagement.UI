@@ -11,15 +11,15 @@
 
     <ul class="list-unstyled components">
       <li>
-        <a routerLink="/dashboard" routerLinkActive="active">
+        <a [routerLink]="['dashboard']" routerLinkActive="active">
           <i class="bi bi-speedometer2"></i>
           Dashboard
         </a>
       </li>
       <li>
-        <a routerLink="/admins" routerLinkActive="active">
+        <a [routerLink]="['tenants']" routerLinkActive="active">
           <i class="bi bi-people"></i>
-          Admins
+          Tenants
         </a>
       </li>
       <li>
@@ -89,14 +89,9 @@
     </nav>
 
     <div class="container">
-      <h2 class="mb-4">Welcome to the Dashboard</h2>
-      <div class="row">
-        <router-outlet></router-outlet>
+      <div class="row w-100 h-100" >
+        <router-outlet #outlet="outlet" (activate)="onActivate($event)"></router-outlet>
       </div>
-
-      <!-- Example Charts -->
-      <canvas id="usersChart"></canvas>
-      <canvas id="salesChart"></canvas>
     </div>
   </div>
 </div>

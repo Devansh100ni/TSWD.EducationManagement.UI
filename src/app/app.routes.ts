@@ -3,6 +3,8 @@ import { LoginComponent } from './components/login-component/login-component';
 import { LayoutComponent } from './components/layout-component/layout-component';
 import { authenticationGuard } from './Guards/authentication.guard';
 import { DashboardComponent } from './components/dashboard-component/dashboard-component';
+import { TenantsComponent } from './components/tenants-component/tenants-component';
+import { TenantDetailsComponent } from './components/tenant-details-component/tenant-details-component';
 
 export const routes: Routes = [
   {
@@ -33,6 +35,18 @@ export const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         canActivate: [authenticationGuard],
+      },
+      {
+        path: 'tenants',
+        component: TenantsComponent,
+        canActivate: [authenticationGuard],
+        data: { animation: 'slide', roles: ['ApplicationAdministrator']  },
+      },
+      {
+        path: 'tenant-details/:id',
+        component: TenantDetailsComponent,
+        canActivate: [authenticationGuard],
+        data: { animation: 'slide', roles: ['ApplicationAdministrator']  },
       },
     ],
   },

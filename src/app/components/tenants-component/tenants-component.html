@@ -1,0 +1,134 @@
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <button ngbNavLink>Active Tenants</button>
+    <ng-template ngbNavContent>
+      <div class="vh-75">
+        <div class="row p-2 mb-2">
+          <div class="d-flex col-md-6 justify-content-start">
+            <h4>Active Tenants</h4>
+          </div>
+          <div class="d-flex col-md-6 justify-content-end">
+            <button class="btn btn-primary" type="button" (click)="open(addTenantModal)">
+              Add
+            </button>
+          </div>
+        </div>
+
+        <table class="table table-striped table-hover">
+          <thead class="table table-bordered">
+            <tr>
+              <th>Tenant Name</th>
+              <th>No. of Users</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (tenant of tenants; track tenant.id) {
+            <tr>
+              <td>{{ tenant.name }}</td>
+              <td>{{ tenant.noOfUsers }}</td>
+              <td>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Action
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <button
+                        type="button"
+                        class="dropdown-item"
+                        (click)="onEdit(tenant.id, addTenantModal)"
+                      >
+                        Edit
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        class="dropdown-item"
+                        (click)="onDetails(tenant.id)"
+                      >
+                        Details
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+        <div class="row align-items-center position-relative">
+          <div class="col-md-6">
+            <pre>Current page: {{ page }}</pre>
+          </div>
+          <div class="col-md-6 d-flex justify-content-end">
+            <ngb-pagination
+              [collectionSize]="collectionSize"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              (pageChange)="pageChange()"
+              [boundaryLinks]="true"
+            >
+            </ngb-pagination>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <button ngbNavLink>Disable Tenants</button>
+    <ng-template ngbNavContent>
+      
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<ng-template #addTenantModal let-modal>
+  <div class="modal-header">
+    @if(tenantId){
+    <h4 class="modal-title" id="modal-basic-title">Edit Tenant</h4>
+    } @else{
+    <h4 class="modal-title" id="modal-basic-title">Add New Tenant</h4>
+    }
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (submit)="submitTenant(modal)">
+      <div class="mb-3">
+        <div class="form-group">
+          <label class="form-label">Tenant Name</label>
+          <input
+            type="text"
+            name=""
+            class="form-control"
+            placeholder="Please enter tenant name"
+            formControlName="name"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      [disabled]="form.invalid"
+      (click)="submitTenant(modal)"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>

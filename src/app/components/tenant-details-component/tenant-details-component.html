@@ -1,0 +1,33 @@
+<div class="row align-items-center">
+  <div class="col-md-6 d-flex">
+    <h4 class="my-2">Tenant Details</h4>
+  </div>
+  <div class="col-md-6 d-flex justify-content-end">
+    <button class="btn btn-primary me-2" (click)="handeBack()">Back</button>
+  </div>
+</div>
+
+<div>
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <button ngbNavLink>Configurations</button>
+      <ng-template ngbNavContent>
+        <app-tenant-configuration-component></app-tenant-configuration-component>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <button ngbNavLink>Roles</button>
+      <ng-template ngbNavContent>
+        <app-tenant-roles-component></app-tenant-roles-component>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <button ngbNavLink>Users</button>
+      <ng-template ngbNavContent>
+         <app-tenant-users-component></app-tenant-users-component>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
