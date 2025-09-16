@@ -1,0 +1,102 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar" [ngClass]="{ active: sidebarActive }">
+    <div class="sidebar-header">
+      <img
+        src="https://assets.codepen.io/11549074/internal/avatars/users/default.png"
+        alt="Logo"
+        class="sidebar-logo"
+      />
+    </div>
+
+    <ul class="list-unstyled components">
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="active">
+          <i class="bi bi-speedometer2"></i>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admins" routerLinkActive="active">
+          <i class="bi bi-people"></i>
+          Admins
+        </a>
+      </li>
+      <li>
+        <a routerLink="/users" routerLinkActive="active">
+          <i class="bi bi-people"></i>
+          Users
+        </a>
+      </li>
+      <li>
+        <a routerLink="/circles" routerLinkActive="active">
+          <i class="fas fa-circle"></i>
+          Circles
+        </a>
+      </li>
+      <li>
+        <a routerLink="/places" routerLinkActive="active">
+          <i class="fas fa-map-marker-alt"></i>
+          Places
+        </a>
+      </li>
+      <li>
+        <a routerLink="/events" routerLinkActive="active">
+          <i class="fas fa-calendar"></i>
+          Events
+        </a>
+      </li>
+      <li>
+        <a routerLink="/settings" routerLinkActive="active">
+          <i class="fas fa-cogs"></i>
+          Settings
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content" [ngClass]="{ active: sidebarActive }">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSidebar()">
+          <i class="bi bi-list-columns-reverse"></i>
+        </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2 class="mb-4">Welcome to the Dashboard</h2>
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+
+      <!-- Example Charts -->
+      <canvas id="usersChart"></canvas>
+      <canvas id="salesChart"></canvas>
+    </div>
+  </div>
+</div>

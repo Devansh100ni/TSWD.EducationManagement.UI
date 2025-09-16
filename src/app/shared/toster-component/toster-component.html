@@ -1,0 +1,17 @@
+@for (toast of toastService.toasts; track toast) {
+  <ngb-toast
+    [class]="toast.classname"
+    class="toast-custom"
+    [autohide]="true"
+    [delay]="toast.delay"
+    (hidden)="toastService.remove(toast)">
+
+    @if (isTemplate(toast.textOrTpl)) {
+      <ng-container *ngTemplateOutlet="toast.textOrTpl"></ng-container>
+    } @else {
+      {{ toast.textOrTpl }}
+    }
+
+  </ngb-toast>
+}
+
