@@ -14,6 +14,7 @@ import { RoleService } from '../../../proxy/roles/role.service';
 import { LoaderService } from '../../../proxy/shared/loader-service';
 import { PermissionGroup } from '../../../proxy/roles/PermissionGroup';
 import { ActivatedRoute } from '@angular/router';
+import { AddPermissionDto } from '../../../proxy/roles/AddPermissionDto';
 
 @Component({
   selector: 'app-tenant-roles-component',
@@ -78,6 +79,7 @@ export class TenantRolesComponent implements OnInit {
           permissions: this.fb.array(
             group.permissions.map((perm: any) =>
               this.fb.group({
+                id: [perm.id],
                 permissionName: [perm.name],
                 isGranted: [false],
               })
@@ -121,7 +123,41 @@ export class TenantRolesComponent implements OnInit {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
-  onSubmit(model: any) {}
+  onSubmit(model: any) {
+    debugger;
+    if (!this.form.valid) return;
+
+    this.loader.show();
+    const selectedPermissions: AddPermissionDto[] = [];
+
+    this.permissionGroups.controls.forEach((group) => {
+      debugger;
+      const permissions = (group.get('permissions') as FormArray).controls;
+      permissions.forEach((p) => {
+        debugger;
+        if (p.get('isGranted')?.value) {
+          selectedPermissions.push({
+            permissionId: p.get('id')?.value,
+            tenantId: this.tenantId,
+          });
+        }
+      });
+    });
+
+    const roleData = {
+      id: this.form.get('id')?.value, // include id for update
+      name: this.form.get('name')?.value,
+      description: this.form.get('description')?.value,
+      tenantId: this.tenantId,
+      permissions: selectedPermissions,
+    };
+
+    this.roleService.createOrUpdate(roleData).subscribe(() => {
+      this.modalService.dismissAll();
+      this.loadData();
+      this.loader.hide();
+    });
+  }
 
   pageChange() {
     this.loadData();

@@ -35,4 +35,13 @@ export class RoleService {
     const url = this.apiUrl + '/GetPermissions';
     return this.http.get<PermissionGroup[]>(url);
   }
+
+  createOrUpdate(data: any) {
+    const url = this.apiUrl + '/createUpdate';
+    return this.http.post(url, data);
+  }
+
+  getById(id: string) {
+    return this.http.get(`/api/roles/${id}`);
+  }
 }
