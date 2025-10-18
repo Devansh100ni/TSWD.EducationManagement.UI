@@ -5,6 +5,7 @@ import { authenticationGuard } from './Guards/authentication.guard';
 import { DashboardComponent } from './components/dashboard-component/dashboard-component';
 import { TenantsComponent } from './components/tenants-component/tenants-component';
 import { TenantDetailsComponent } from './components/tenant-details-component/tenant-details-component';
+import { SchoolSettingComponent } from './components/school-setting-component/school-setting-component';
 
 export const routes: Routes = [
   {
@@ -47,6 +48,12 @@ export const routes: Routes = [
         component: TenantDetailsComponent,
         canActivate: [authenticationGuard],
         data: { animation: 'slide', roles: ['ApplicationAdministrator']  },
+      },
+      {
+        path: 'school-settings',
+        component: SchoolSettingComponent,
+        canActivate: [authenticationGuard],
+        data: { animation: 'slide', roles: ['Admin']  },
       },
     ],
   },

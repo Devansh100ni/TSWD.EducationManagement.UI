@@ -23,14 +23,47 @@
           Tenants
         </a>
       </li>
-      }
-      @if(user?.role === 'ApplicationAdministrator'){
-        <li id="item-users">
-          <a [routerLink]="['tenants']" routerLinkActive="active">
-            <i class="bi bi-people"></i>
-            Users
-          </a>
-        </li>
+      } @if(user?.role === 'ApplicationAdministrator'){
+      <li id="item-users">
+        <a [routerLink]="['tenants']" routerLinkActive="active">
+          <i class="bi bi-people"></i>
+          Users
+        </a>
+      </li>
+      } @if(user?.role === "Admin"){
+      <li id="item-school-settings" class="dropdown">
+        <a
+          class="dropdown-toggle"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          data-bs-auto-close="inside"
+        >
+          <i class="bi bi-gear"></i>
+          Settings
+        </a>
+
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" [routerLink]="['school-settings']"
+              ><i class="bi bi-sliders"></i>
+              <span>School Settings</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['school-settings']">
+              <i class="bi bi-bank2"></i>
+              Classes
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['school-settings']">
+              <i class="bi bi-book"></i>
+              Library
+            </a>
+          </li>
+        </ul>
+      </li>
       }
     </ul>
   </nav>
@@ -56,7 +89,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" [routerLink]="['dashboard']">Home</a>
+              <a class="nav-link" aria-current="page" [routerLink]="['dashboard']">Home</a>
             </li>
           </ul>
           <ul class="navbar-nav mb-2 mb-0">

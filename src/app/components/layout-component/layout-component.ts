@@ -37,7 +37,6 @@ export class LayoutComponent implements OnInit {
   }
 
   private setActiveNavItem() {
-    debugger
     const navItems = document.querySelectorAll('#sideNavItems li');
     navItems.forEach((item) => item.classList.remove('active'));
 

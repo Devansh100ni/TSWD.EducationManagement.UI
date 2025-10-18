@@ -1,0 +1,41 @@
+<div class="row align-items-center">
+  <div class="col-md-6 d-flex">
+    <h4 class="my-2">School Settings</h4>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav nav-pills nav-justified">
+      <li [ngbNavItem]="1">
+        <button ngbNavLink>General Settings</button>
+        <ng-template ngbNavContent>
+          <hr />
+          <app-general-setting-component></app-general-setting-component>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <button ngbNavLink>Academic Settings</button>
+        <ng-template ngbNavContent>
+          <hr />
+          <app-academic-setting-component></app-academic-setting-component>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="3">
+        <button ngbNavLink>Fee & Finance Settings</button>
+        <ng-template ngbNavContent>
+          <hr />
+          <app-fee-finance-setting-component></app-fee-finance-setting-component>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="4">
+        <button ngbNavLink>Library Settings</button>
+        <ng-template ngbNavContent>
+          <hr />
+          <app-library-setting-component></app-library-setting-component>
+        </ng-template>
+      </li>
+    </ul>
+
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>

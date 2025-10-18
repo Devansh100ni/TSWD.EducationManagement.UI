@@ -27,6 +27,21 @@ span {
   display: inline-block;
 }
 
+
+#item-school-settings>.dropdown-toggle::after{
+  content: '';
+  display: none;
+}
+
+#item-school-settings>.dropdown-menu.show {
+    width: 100%;
+}
+
+#sidebar.active a span,
+#sidebar.active a:not(:has(i)) {
+  display: none;
+}
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
