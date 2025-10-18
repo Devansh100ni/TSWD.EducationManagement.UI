@@ -1,1 +1,79 @@
-<p>general-setting-component works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <h3>General Settings</h3>
+    <div class="col-md-12">
+      <form [formGroup]="form">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="setting-schoolName">
+              School Name
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              name="setting-schoolName"
+              id="setting-schoolName"
+              class="form-control"
+              formControlName="schoolName"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="setting-schoolCode">
+              School Code
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              name="setting-schoolCode"
+              id="setting-schoolCode"
+              class="form-control"
+              formControlName="schoolCode"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="setting-address">School Address</label>
+            <textarea
+              rows="4"
+              name="setting-address"
+              id="setting-address"
+              class="form-control"
+              formControlName="address"
+            ></textarea>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex flex-column">
+              <div class="form-group mb-3">
+                <label for="setting-email">Email</label>
+                <input
+                  type="email"
+                  name="setting-email"
+                  id="setting-email"
+                  formControlName="email"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="setting-email">Phone</label>
+                <input
+                  type="tel"
+                  name="setting-email"
+                  id="setting-email"
+                  formControlName="phone"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-end">
+          <div class="col-1">
+            <button type="submit" class="btn btn-primary" (click)="handleSubmit()"[disabled]="this.form.invalid">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

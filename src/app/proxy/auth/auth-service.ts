@@ -28,6 +28,7 @@ export class AuthService {
     localStorage.setItem("Email", user.email);
     localStorage.setItem("Role", user.role);
     localStorage.setItem("fName", user.firstName);
+    localStorage.setItem("tenantId", user.tenantId || '')
   }
 
   user(): Observable<User | undefined> {
@@ -38,11 +39,13 @@ export class AuthService {
     const _email = localStorage.getItem("Email");
     const _Role = localStorage.getItem("Role");
     const _fName = localStorage.getItem("fName");
+    const _tenantId = localStorage.getItem("tenantId");
     if (_email && _Role && _fName) {
       const user: User = {
         email: _email,
         role: _Role,
-        firstName: _fName
+        firstName: _fName,
+        tenantId: _tenantId
       };
       return user;
     }

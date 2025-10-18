@@ -14,7 +14,7 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
 
   if (token) {
     try {
-      token = token.replace(/^bearer\s+/i, ''); 
+      token = token.replace(/^bearer\s+/i, '');
       const decodedToken: JwtClaims = jwtDecode<JwtClaims>(token);
 
       // Check expiration
@@ -34,8 +34,10 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
         userId:
           decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'] ??
           '',
+        tenantId:
+          decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/userdata'] ?? '',
       };
-      
+
       authService.setUser(user);
 
       const allowedRoles = route.data['roles'] as string[] | undefined;
