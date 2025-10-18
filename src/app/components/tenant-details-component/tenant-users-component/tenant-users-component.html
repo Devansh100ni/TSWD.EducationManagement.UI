@@ -15,7 +15,7 @@
         <th>Full Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Is Active</th>
+        <th>Active</th>
         <th></th>
       </tr>
     </thead>
@@ -26,7 +26,13 @@
         <td>{{ user.fullName }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.roleName }}</td>
-        <td>{{ user.isActive }}</td>
+        <td>
+          @if(user.isActive){
+          <i class="bi bi-check-lg text-success fw-bolder"></i>
+          } @else{
+          <i class="bi bi-x-lg text-danger fw-bolder"></i>
+          }
+        </td>
         <td>
           <div class="dropdown">
             <button
@@ -39,7 +45,14 @@
             </button>
             <ul class="dropdown-menu">
               <li>
-                <button type="button" class="dropdown-item">Edit</button>
+                <button
+                  type="button"
+                  class="dropdown-item"
+                  [disabled]="!user?.id"
+                  (click)="handleEdit(user.id, content)"
+                >
+                  Edit
+                </button>
               </li>
             </ul>
           </div>
@@ -67,13 +80,11 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile Update</h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
-    ></button>
+    @if(userId){
+    <h4 class="modal-title" id="modal-basic-title">Edit User</h4>
+    } @else {
+    <h4 class="modal-title" id="modal-basic-title">Add User</h4>
+    }
   </div>
 
   <div class="modal-body">
@@ -108,7 +119,7 @@
         <div class="col-md-6 mb-3">
           <label>Role</label>
           <select class="form-control" formControlName="roleId">
-            <option disabled="true">Select Role</option>
+            <option disabled="true" selected>Select Role</option>
             @for (role of roles; track role.id) {
             <option [value]="role.id">{{ role.name }}</option>
             }
@@ -134,9 +145,11 @@
               type="checkbox"
               class="form-check-input"
               formControlName="shouldChangePasswordOnNextLogin"
-              id="isActive"
+              id="shouldChangePasswordOnNextLogin"
             />
-            <label for="isActive" class="form-check-label">Change Password On Next Login</label>
+            <label for="shouldChangePasswordOnNextLogin" class="form-check-label"
+              >Change Password On Next Login</label
+            >
           </div>
         </div>
       </div>
@@ -144,7 +157,7 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel')">
+    <button type="button" class="btn btn-outline-secondary" (click)="closeModal(modal, 'cancel')">
       Cancel
     </button>
     <button type="button" class="btn btn-primary" (click)="onSubmit(modal)">Save</button>

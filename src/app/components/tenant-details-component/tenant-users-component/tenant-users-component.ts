@@ -2,7 +2,7 @@ import { Component, inject, Inject, OnInit, TemplateRef } from '@angular/core';
 import { UserService } from '../../../proxy/users/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { UsersDtos } from '../../../proxy/users/usersdtos';
-import { NgbModal, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import {
   FormBuilder,
   FormGroup,
@@ -13,6 +13,8 @@ import {
 import { LoaderService } from '../../../proxy/shared/loader-service';
 import { RoleService } from '../../../proxy/roles/role.service';
 import { roleDto } from '../../../proxy/roles/roleDto';
+import { ToastService } from '../../../proxy/shared/toast-service';
+import { ConstantsClass } from '../../../proxy/shared/constants.class';
 
 @Component({
   selector: 'app-tenant-users-component',
@@ -27,14 +29,18 @@ export class TenantUsersComponent implements OnInit {
   private userService = inject(UserService);
   private roleService = inject(RoleService);
   private route = inject(ActivatedRoute);
+  private toast = inject(ToastService);
 
   tenantId!: string;
-  users: UsersDtos[] = [];
+  userId?: string | null;
   roles: roleDto[] = [];
+  users: UsersDtos[] = [];
+  user?: UsersDtos | null = null;
   form!: FormGroup;
   page = 1;
   pageSize = 10;
   collectionSize = 0;
+  modalRef!: NgbModalRef;
 
   ngOnInit(): void {
     this.tenantId = this.route.snapshot.paramMap.get('id') ?? '';
@@ -56,27 +62,27 @@ export class TenantUsersComponent implements OnInit {
     });
   }
 
-  buildForm() {
+  buildForm(isDisableSomeFields: boolean = false) {
     this.form = this.fb.group({
-      id: [null],
+      id: [this.user?.id],
       tenantId: [this.tenantId, Validators.required],
-      roleId: ['', Validators.required],
+      roleId: [this.user?.roleId, Validators.required],
 
-      userName: ['', Validators.required],
-      name: [''],
-      surname: [''],
+      userName: [{ value: this.user?.userName, disabled: isDisableSomeFields }, Validators.required],
+      name: [this.user?.name],
+      surname: [this.user?.surname],
 
-      email: ['', [Validators.required, Validators.email]],
+      email: [{ value: this.user?.email, disabled: isDisableSomeFields }, [Validators.required, Validators.email]],
       emailConfirmed: [false],
 
       passwordHash: [''],
       securityStamp: [crypto.randomUUID()],
       isExternal: [false],
 
-      phoneNumber: [''],
+      phoneNumber: [this.user?.phoneNumber],
       phoneNumberConfirmed: [false],
 
-      isActive: [true],
+      isActive: [this.user?.isActive],
       twoFactorEnabled: [false],
 
       lockoutEnd: [null],
@@ -89,7 +95,21 @@ export class TenantUsersComponent implements OnInit {
 
   open(content: TemplateRef<any>) {
     this.buildForm();
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    this.modalRef = this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
+
+  handleEdit(id: any, content: TemplateRef<any>) {
+    if (id === undefined || id === null) return;
+    this.loader.show();
+    this.userService.getUserById(id).subscribe((result) => {
+      if (result.success) {
+        this.userId = id;
+        this.user = result?.data;
+        this.buildForm(true);
+        this.loader.hide();
+        this.modalRef = this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+      }
+    });
   }
 
   getRoles() {
@@ -103,19 +123,36 @@ export class TenantUsersComponent implements OnInit {
   onSubmit(modal: any) {
     if (this.form.valid) {
       this.loader.show();
-      debugger
-      console.log('Form Value:', this.form.value);
       this.userService.createUpdateUser(this.form.value).subscribe(() => {
         this.loadUsers();
         this.loader.hide();
+        this.closeModal(this.modalRef, 'Saved Data');
+        if (this.userId) {
+          this.toast.success(ConstantsClass.Success('User', 'updated'));
+        } else {
+          this.toast.success(ConstantsClass.Success('User', 'added'));
+        }
       });
       modal.close('Save click');
     } else {
-      alert('invalid form');
+      this.toast.error(ConstantsClass.InvalidForm);
     }
   }
 
   pageChange() {
     this.loadUsers();
+  }
+
+  closeModal(modal: NgbModalRef, reason: string) {
+    this.modalRef.result.finally(() => {
+      this.user = null;
+      this.userId = '';
+      this.resetForm();
+    });
+    modal.dismiss(reason); // or modal.close(reason)
+  }
+
+  resetForm() {
+    this.form.reset();
   }
 }

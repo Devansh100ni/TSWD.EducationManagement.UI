@@ -6,6 +6,7 @@ import { UsersDtos } from './usersdtos';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { RestService } from '../shared/rest.service';
+import { Result } from '../shared/result';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,14 @@ export class UserService {
       method: 'POST',
       url: '/Users/CreateUpdateUser', // <-- adjust URL if needed
       body: data,
+    });
+  }
+
+  getUserById(id:string): Observable<Result<UsersDtos>>{
+     return this.restService.request<any, Result<UsersDtos>>({
+      method: 'GET',
+      url: '/Users/GetUserById', // <-- adjust URL if needed
+      params: { id }
     });
   }
 }

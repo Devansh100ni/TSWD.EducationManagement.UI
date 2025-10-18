@@ -7,6 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth/auth-service';
 import { LoaderService } from './loader-service';
 import { ToastService } from './toast-service';
+import { ConstantsClass } from './constants.class';
 
 @Injectable({
   providedIn: 'root',
@@ -82,12 +83,12 @@ export class RestService {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 0) {
           // API or network issue
-          this.toaster.error('API is down or unreachable. Please try again later.');
+          this.toaster.error(ConstantsClass.ApiDown);
         } else if (error.status === 401) {
-          this.toaster.error(`Unauthorized access!`);
+          this.toaster.error(ConstantsClass.Unauthorized);
           //this.auth.logout();
         } else {
-          const msg = error.error?.message || error.message || 'An error occurred.';
+          const msg = error.error?.message || error.message || ConstantsClass.UnknownError ;
           this.toaster.error(`Error: ${msg}`);
         }
         this.loader.hide();
