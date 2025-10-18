@@ -15,10 +15,13 @@ import { RoleService } from '../../../proxy/roles/role.service';
 import { roleDto } from '../../../proxy/roles/roleDto';
 import { ToastService } from '../../../proxy/shared/toast-service';
 import { ConstantsClass } from '../../../proxy/shared/constants.class';
+import { SearchComponent } from '../../../shared/search-component/search-component';
+import { PagedResult } from '../../../proxy/shared/pagedresult';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-tenant-users-component',
-  imports: [NgbPaginationModule, FormsModule, ReactiveFormsModule],
+  imports: [NgbPaginationModule, FormsModule, ReactiveFormsModule, SearchComponent],
   templateUrl: './tenant-users-component.html',
   styleUrl: './tenant-users-component.css',
 })
@@ -41,6 +44,14 @@ export class TenantUsersComponent implements OnInit {
   pageSize = 10;
   collectionSize = 0;
   modalRef!: NgbModalRef;
+  selectedUser: any;
+  //searchUsers = (query: any) => this.userService.searchUsers(query);
+  
+  searchUsers = (query: string) => {
+    return this.userService
+      .searchUsers(query)
+      .pipe(map((pagedResult: PagedResult<UsersDtos>) => pagedResult.items || []));
+  };
 
   ngOnInit(): void {
     this.tenantId = this.route.snapshot.paramMap.get('id') ?? '';
@@ -68,11 +79,17 @@ export class TenantUsersComponent implements OnInit {
       tenantId: [this.tenantId, Validators.required],
       roleId: [this.user?.roleId, Validators.required],
 
-      userName: [{ value: this.user?.userName, disabled: isDisableSomeFields }, Validators.required],
+      userName: [
+        { value: this.user?.userName, disabled: isDisableSomeFields },
+        Validators.required,
+      ],
       name: [this.user?.name],
       surname: [this.user?.surname],
 
-      email: [{ value: this.user?.email, disabled: isDisableSomeFields }, [Validators.required, Validators.email]],
+      email: [
+        { value: this.user?.email, disabled: isDisableSomeFields },
+        [Validators.required, Validators.email],
+      ],
       emailConfirmed: [false],
 
       passwordHash: [''],

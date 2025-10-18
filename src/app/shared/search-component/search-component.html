@@ -1,0 +1,22 @@
+<div class="search-wrapper position-relative">
+  <input
+    type="text"
+    class="form-control"
+    [placeholder]="placeholder"
+    [formControl]="searchControl"
+    (focus)="showDropdown = results.length > 0"
+  />
+  @if (loading ) {
+  <div
+    class="spinner-border spinner-border-sm position-absolute top-50 end-0 translate-middle-y me-2"
+  ></div>
+  } @if(showDropdown && results.length > 0){
+  <ul class="dropdown-menu show w-100 position-absolute">
+    @for (item of results; track trackByFn($index, item)) {
+    <li class="dropdown-item" (click)="onSelect(item)" style="cursor: pointer">
+      {{ item[displayField] }}
+    </li>
+    }
+  </ul>
+  }
+</div>

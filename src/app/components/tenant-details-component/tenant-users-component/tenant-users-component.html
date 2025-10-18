@@ -8,6 +8,17 @@
     </div>
   </div>
 
+  <div class="card">
+    <div class="card-body">
+      <app-search-component
+        [serviceFn]="searchUsers"
+        placeholder="Search User..."
+        displayField="fullName"
+        valueField="id"
+      ></app-search-component>
+    </div>
+  </div>
+
   <table class="table table-striped table-hover">
     <thead class="table table-bordered">
       <tr>

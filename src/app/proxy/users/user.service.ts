@@ -44,4 +44,14 @@ export class UserService {
       params: { id }
     });
   }
+
+  searchUsers(query:any): Observable<PagedResult<UsersDtos>>{
+    console.log(query)
+     return this.restService.request<any, PagedResult<UsersDtos>>({
+      method: 'POST',
+      url: '/Users', // <-- adjust URL if needed
+      params: { tenantId: 'ec6ebd89-1c82-4e1e-956b-57270e084de9' },
+      body: { pageNumber: 1, pageSize: 10 },
+    });
+  }
 }
