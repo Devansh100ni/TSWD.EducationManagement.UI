@@ -44,4 +44,9 @@ export class RoleService {
   getById(id: string) {
     return this.http.get(`/api/roles/${id}`);
   }
+
+  getAllRoles(tenantId: string): Observable<roleDto[]>{
+    const url = this.apiUrl + `/GetRoles?tenantId=${tenantId}`
+    return this.http.get<roleDto[]>(url);
+  }
 }

@@ -68,7 +68,12 @@
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile Update</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
   </div>
 
   <div class="modal-body">
@@ -80,7 +85,7 @@
         </div>
         <div class="col-md-6 mb-3">
           <label>Email</label>
-          <input type="email" class="form-control" formControlName="email" />
+          <input type="text" class="form-control" formControlName="email" />
         </div>
       </div>
 
@@ -100,10 +105,38 @@
           <label>Phone Number</label>
           <input type="text" class="form-control" formControlName="phoneNumber" />
         </div>
+        <div class="col-md-6 mb-3">
+          <label>Role</label>
+          <select class="form-control" formControlName="roleId">
+            <option disabled="true">Select Role</option>
+            @for (role of roles; track role.id) {
+            <option [value]="role.id">{{ role.name }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-md-6 mb-3 d-flex align-items-center">
           <div class="form-check mt-4">
-            <input type="checkbox" class="form-check-input" formControlName="isActive" id="isActive" />
+            <input
+              type="checkbox"
+              class="form-check-input"
+              formControlName="isActive"
+              id="isActive"
+            />
             <label for="isActive" class="form-check-label">Is Active</label>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3 d-flex align-items-center">
+          <div class="form-check mt-4">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              formControlName="shouldChangePasswordOnNextLogin"
+              id="isActive"
+            />
+            <label for="isActive" class="form-check-label">Change Password On Next Login</label>
           </div>
         </div>
       </div>
@@ -111,9 +144,9 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel')">
+      Cancel
+    </button>
     <button type="button" class="btn btn-primary" (click)="onSubmit(modal)">Save</button>
   </div>
 </ng-template>
-
-
