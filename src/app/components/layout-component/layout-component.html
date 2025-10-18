@@ -9,49 +9,29 @@
       />
     </div>
 
-    <ul class="list-unstyled components">
-      <li>
+    <ul class="list-unstyled components" id="sideNavItems">
+      <li id="item-dashboard">
         <a [routerLink]="['dashboard']" routerLinkActive="active">
           <i class="bi bi-speedometer2"></i>
           Dashboard
         </a>
       </li>
-      <li>
+      @if(user?.role === 'ApplicationAdministrator'){
+      <li id="item-tenants">
         <a [routerLink]="['tenants']" routerLinkActive="active">
           <i class="bi bi-people"></i>
           Tenants
         </a>
       </li>
-      <li>
-        <a routerLink="/users" routerLinkActive="active">
-          <i class="bi bi-people"></i>
-          Users
-        </a>
-      </li>
-      <li>
-        <a routerLink="/circles" routerLinkActive="active">
-          <i class="fas fa-circle"></i>
-          Circles
-        </a>
-      </li>
-      <li>
-        <a routerLink="/places" routerLinkActive="active">
-          <i class="fas fa-map-marker-alt"></i>
-          Places
-        </a>
-      </li>
-      <li>
-        <a routerLink="/events" routerLinkActive="active">
-          <i class="fas fa-calendar"></i>
-          Events
-        </a>
-      </li>
-      <li>
-        <a routerLink="/settings" routerLinkActive="active">
-          <i class="fas fa-cogs"></i>
-          Settings
-        </a>
-      </li>
+      }
+      @if(user?.role === 'ApplicationAdministrator'){
+        <li id="item-users">
+          <a [routerLink]="['tenants']" routerLinkActive="active">
+            <i class="bi bi-people"></i>
+            Users
+          </a>
+        </li>
+      }
     </ul>
   </nav>
 
@@ -76,10 +56,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" [routerLink]="['dashboard']">Home</a>
             </li>
           </ul>
-          <ul class="navbar-nav mb-2 mb-lg-0">
+          <ul class="navbar-nav mb-2 mb-0">
+            <div class="dropdown me-2">
+              <button
+                class="btn dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Hello {{ user?.firstName }}
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+                <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              </ul>
+            </div>
+
             <li class="nav-item">
               <a class="nav-link" (click)="logout()">Logout</a>
             </li>
@@ -89,7 +85,7 @@
     </nav>
 
     <div class="container">
-      <div class="row w-100 h-100" >
+      <div class="row w-100 h-100">
         <router-outlet #outlet="outlet" (activate)="onActivate($event)"></router-outlet>
       </div>
     </div>

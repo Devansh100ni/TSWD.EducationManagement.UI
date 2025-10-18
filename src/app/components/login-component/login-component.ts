@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
-      tenent: [''],
+      tenantName: [this.tenant],
     });
   }
 
@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
 
   saveTenant(modal: any) {
     this.loginForm.patchValue({
-      tenant: this.tenant,
+      tenantName: this.tenant,
     });
     modal.close();
     if (this.tenant) {
@@ -130,7 +130,7 @@ export class LoginComponent implements OnInit {
   handleClear() {
     this.tenant = '';
     this.loginForm.patchValue({
-      tenant: this.tenant,
+      tenantName: this.tenant,
     });
   }
 }
