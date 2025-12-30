@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref, Router, NavigationEnd } from '@angular/router';
 import LocomotiveScroll from 'locomotive-scroll';
-import { NgbNavLink } from "../../../../node_modules/@ng-bootstrap/ng-bootstrap/index";
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pre-home-component',
@@ -14,7 +14,7 @@ export class PreHomeComponent implements OnInit, AfterViewInit {
   locoScroll!: LocomotiveScroll;
   lastScrollY = 0;
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(private title: Title, private meta: Meta, private router: Router) {}
 
   ngOnInit() {
     this.title.setTitle('CodeArdra Solutions');
@@ -34,6 +34,15 @@ export class PreHomeComponent implements OnInit, AfterViewInit {
     });
 
     this.syncNavbarWithLocoScroll();
+
+    this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+      setTimeout(() => {
+        this.locoScroll.update();   // Recalculate height
+        this.locoScroll.scrollTo(0, { duration: 0 }); // Optional: reset scroll
+      }, 100);
+    });
   }
 
   syncNavbarWithLocoScroll() {
