@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
 import LocomotiveScroll from 'locomotive-scroll';
+import { NgbNavLink } from "../../../../node_modules/@ng-bootstrap/ng-bootstrap/index";
 
 @Component({
   selector: 'app-pre-home-component',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLinkWithHref],
   templateUrl: './pre-home-component.html',
   styleUrl: './pre-home-component.css',
 })

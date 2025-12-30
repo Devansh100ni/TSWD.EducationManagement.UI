@@ -1,0 +1,23 @@
+<svg id="Finance" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <path id="Path_1074" data-name="Path 1074" d="M758,424a4,4,0,0,1-4-4h-2a6,6,0,0,0,12,0h-2A4,4,0,0,1,758,424Z" transform="translate(-720 -384)" fill="#42d15c"/>
+  <path id="Path_1075" data-name="Path 1075" d="M758,420a4,4,0,0,1-4-4h-2a6,6,0,0,0,12,0h-2A4,4,0,0,1,758,420Z" transform="translate(-720 -384)" fill="#42d15c"/>
+  <g id="Group_839" data-name="Group 839" transform="translate(-720 -384)">
+    <path id="Path_1076" data-name="Path 1076" d="M744,394a6,6,0,0,0-3.757,10.674h0a5.918,5.918,0,0,0,.8.544l.027.016a5.915,5.915,0,0,0,.836.384l.126.046a5.917,5.917,0,0,0,.872.232c.046.008.093.013.139.021a5.535,5.535,0,0,0,1.91,0c.046-.008.093-.013.139-.021a5.917,5.917,0,0,0,.872-.232l.126-.046a5.915,5.915,0,0,0,.836-.384l.027-.016a5.918,5.918,0,0,0,.8-.544h0A6,6,0,0,0,744,394Zm2.617,9a3.921,3.921,0,0,0-5.234,0,4,4,0,1,1,5.234,0Z" fill="#42d15c"/>
+    <circle id="Ellipse_176" data-name="Ellipse 176" cx="2" cy="2" r="2" transform="translate(742 398)" fill="#42d15c"/>
+    <path id="Path_1077" data-name="Path 1077" d="M753,396h5v7a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1v-9h-7a1,1,0,0,0-1,1h0A1,1,0,0,0,753,396Z" fill="#42d15c"/>
+    <path id="Path_1078" data-name="Path 1078" d="M728,406h7a1,1,0,0,0,1-1h0a1,1,0,0,0-1-1h-5v-8h5a1,1,0,0,0,1-1h0a1,1,0,0,0-1-1h-7Z" fill="#42d15c"/>
+    <path id="Path_1079" data-name="Path 1079" d="M749,416H726v-2h23a1,1,0,0,0,1-1h0a1,1,0,0,0-1-1H726v-2h23a1,1,0,0,0,1-1h0a1,1,0,0,0-1-1H726V392h36v11a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V392a2,2,0,0,0-2-2H726a2,2,0,0,0-2,2v24a2,2,0,0,0,2,2h23a1,1,0,0,0,1-1h0A1,1,0,0,0,749,416Z" fill="#42d15c"/>
+  </g>
+  <g id="Group_840" data-name="Group 840" transform="translate(-720 -384)">
+    <path id="Path_1080" data-name="Path 1080" d="M758,408a4,4,0,1,1-4,4,4,4,0,0,1,4-4m0-2a6,6,0,1,0,6,6,6,6,0,0,0-6-6Z" fill="#42d15c"/>
+  </g>
+  <g id="Group_841" data-name="Group 841" transform="translate(-720 -384)">
+    <path id="Path_1081" data-name="Path 1081" d="M753,419" fill="#fff"/>
+    <path id="Path_1082" data-name="Path 1082" d="M754,412h-2v8h2v-8Z" fill="#42d15c"/>
+  </g>
+  <g id="Group_842" data-name="Group 842" transform="translate(-720 -384)">
+    <path id="Path_1083" data-name="Path 1083" d="M763,419" fill="#fff"/>
+    <path id="Path_1084" data-name="Path 1084" d="M764,412h-2v8h2v-8Z" fill="#42d15c"/>
+  </g>
+  <rect id="Rectangle_480" data-name="Rectangle 480" width="48" height="48" fill="none"/>
+</svg>

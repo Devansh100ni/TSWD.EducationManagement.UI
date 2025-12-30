@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   --primary: #0d253f; /* Code Navy Primary Brand Color. Use for the Navbar, Footer, Headings (H1, H2), and primary text. */
+  --secondary: #17497e;
   --ardraGreen: #42d15c; /* Ardra Green Primary Action Color. Use for "Sign Up" buttons, icons, success messages, and highlights. */
   --circuitTeal: #009688; /* Circuit Teal Secondary/Accent. Use for secondary buttons, hover states, or gradient blends. */
   --SolutionGrey: #6c757d; /* Solution Grey Neutral. Use for the "SOLUTIONS" tagline text, sub-headings, and borders. */

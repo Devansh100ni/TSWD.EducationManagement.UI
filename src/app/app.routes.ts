@@ -9,6 +9,7 @@ import { SchoolSettingComponent } from './components/school-setting-component/sc
 import { ClassSectionSettingComponent } from './components/class-section-setting-component/class-section-setting-component';
 import { PreHomeComponent } from './pre-home/pre-home-component/pre-home-component';
 import { LandingComponent } from './pre-home/landing-component/landing-component';
+import { FeatureTourInner } from './pre-home/feature-tour-inner/feature-tour-inner';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
       {
         path: 'home',
         component: LandingComponent,
+      },
+      {
+        path: 'feature-tour',
+        component: FeatureTourInner,
       }
     ],
   },

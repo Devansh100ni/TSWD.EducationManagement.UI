@@ -1,0 +1,15 @@
+<svg id="StudentInfo" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Group_843" data-name="Group 843" transform="translate(-816 -384)">
+    <path id="Path_1085" data-name="Path 1085" d="M853,402H843a1,1,0,0,0,0,2h10a1,1,0,0,0,0-2Z" fill="#42d15c"/>
+    <path id="Path_1086" data-name="Path 1086" d="M853,395.825h-8a1,1,0,0,0,0,2h8a1,1,0,0,0,0-2Z" fill="#42d15c"/>
+    <path id="Path_1087" data-name="Path 1087" d="M853,407.825h-6a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z" fill="#42d15c"/>
+    <path id="Path_1088" data-name="Path 1088" d="M853,414h-6a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z" fill="#42d15c"/>
+    <path id="Path_1089" data-name="Path 1089" d="M843.788,415.825a11.985,11.985,0,0,0-7.754-9.282,6.983,6.983,0,0,0,1.461-10.052l-1.755,1.045a5,5,0,1,1-7.541.084l-1.749-1.042a6.977,6.977,0,0,0,1.5,9.945,12,12,0,0,0-7.945,10.2,1.01,1.01,0,0,0,1,1.1h21.883a1,1,0,0,0,.995-1.105Zm-12.859,0h-8.774a10,10,0,0,1,19.6,0Z" fill="#42d15c"/>
+    <path id="Path_1090" data-name="Path 1090" d="M831.9,390.175l6.04,3.722-6.04,3.6-6.041-3.6,6.041-3.722m-8.495,2.885a1,1,0,0,0,.012,1.711l7.971,4.749a1,1,0,0,0,1.023,0l7.971-4.749a1,1,0,0,0,.012-1.711l-7.97-4.911a1,1,0,0,0-1.049,0Z" fill="#42d15c"/>
+    <path id="Path_1091" data-name="Path 1091" d="M821,423.825h38a1,1,0,0,0,1-1v-32a1,1,0,0,0-1-1H845a1,1,0,0,0-1,1h0a1,1,0,0,0,1,1h13v30H821a1,1,0,0,0-1,1h0A1,1,0,0,0,821,423.825Z" fill="#42d15c"/>
+  </g>
+  <g id="Group_844" data-name="Group 844" transform="translate(-816 -384)">
+    <rect id="Rectangle_481" data-name="Rectangle 481" width="48" height="48" transform="translate(816 384)" fill="none"/>
+  </g>
+  <rect id="Rectangle_482" data-name="Rectangle 482" width="40" height="2" rx="1" transform="translate(4 42)" fill="#42d15c"/>
+</svg>

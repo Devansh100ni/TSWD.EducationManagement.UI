@@ -1,0 +1,22 @@
+<div class="container my-5">
+  <h2 class="text-color-primary addon-modules-heading">
+    Add-on Modules ({{ coreModules.length }})
+  </h2>
+
+  <div class="row">
+    @for (col of [].constructor(columns); let colIndex = $index; track colIndex) {
+      <div class="col-md-4">
+        @for (module of getColumnItems(colIndex); track module.title) {
+          <div class="addon-module-box d-flex align-items-center my-3">
+            <img
+              [src]="module.icon"
+              [alt]="module.title"
+              class="addon-module-icon me-3 img"
+            />
+            <a class="addon-module-title" href="{{module.href}}">{{ module.title }}</a>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

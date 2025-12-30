@@ -1,0 +1,13 @@
+<svg id="Attendance" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <path id="Path_1046" data-name="Path 1046" d="M1036,294h0v2h-8v-2h8m1-2h-10a1,1,0,0,0-1,1v1h-9a1,1,0,0,0-1,1v36a1,1,0,0,0,1,1h30a1,1,0,0,0,1-1V295a1,1,0,0,0-1-1h-9v-1a1,1,0,0,0-1-1Zm-10,6h10a1,1,0,0,0,1-1v-1h8v34h-28V296h8v1a1,1,0,0,0,1,1Z" transform="translate(-1008 -288)" fill="#42d15c"/>
+  <rect id="Rectangle_435" data-name="Rectangle 435" width="48" height="48" fill="none"/>
+  <path id="Path_1047" data-name="Path 1047" d="M1038.414,303.828l-.707-.707a1,1,0,0,0-1.414,0h0a1,1,0,0,0,0,1.415l.707.707.707.707a1,1,0,0,0,1.414,0l4.243-4.243a1,1,0,0,0,0-1.414h0a1,1,0,0,0-1.414,0Z" transform="translate(-1008 -288)" fill="#42d15c"/>
+  <rect id="Rectangle_436" data-name="Rectangle 436" width="10" height="2" rx="1" transform="translate(14 14)" fill="#42d15c"/>
+  <path id="Path_1048" data-name="Path 1048" d="M1038.414,313.586l-.707-.707a1,1,0,0,0-1.414,0h0a1,1,0,0,0,0,1.414L1037,315l.707.707a1,1,0,0,0,1.414,0l4.243-4.243a1,1,0,0,0,0-1.414h0a1,1,0,0,0-1.414,0Z" transform="translate(-1008 -288)" fill="#42d15c"/>
+  <rect id="Rectangle_437" data-name="Rectangle 437" width="10" height="2" rx="1" transform="translate(14 24)" fill="#42d15c"/>
+  <rect id="Rectangle_438" data-name="Rectangle 438" width="10" height="2" rx="1" transform="translate(14 34)" fill="#42d15c"/>
+  <path id="Path_1049" data-name="Path 1049" d="M1040.536,323.121l1.414-1.414a1,1,0,0,0-1.415-1.414l-1.414,1.414-1.414-1.414a1,1,0,0,0-1.414,1.414l1.414,1.414-1.414,1.415a1,1,0,1,0,1.414,1.414l1.414-1.414,1.414,1.414a1,1,0,1,0,1.415-1.414Z" transform="translate(-1008 -288)" fill="#42d15c"/>
+  <g id="Group_817" data-name="Group 817" transform="translate(-1008 -288)">
+    <rect id="Rectangle_439" data-name="Rectangle 439" width="48" height="48" transform="translate(1008 288)" fill="none"/>
+  </g>
+</svg>

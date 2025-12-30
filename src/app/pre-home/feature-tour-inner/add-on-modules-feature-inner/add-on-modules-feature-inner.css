@@ -1,0 +1,30 @@
+.text-color-primary {
+  color: var(--primary);
+}
+
+.text-color-ardraGreen {
+  color: var(--ardraGreen);
+}
+
+.addon-modules-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  background-color: var(--ardraGreen);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.addon-module-box img {
+  width: 60px;
+  height: 60px;
+}
+
+.addon-module-box a {
+  text-decoration: none !important;
+  color: var(--secondary) !important;
+}
+.addon-module-box a:hover {
+  color: var(--circuitTeal) !important;
+}

@@ -1,0 +1,9 @@
+<svg id="EmployeeLogin" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <path id="Path_1094" data-name="Path 1094" d="M1043,406a6.989,6.989,0,0,0-6.524,9.524l-6.183,6.183a1,1,0,0,0-.293.707V425a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1v-1h2a1,1,0,0,0,1-1v-1h2a1,1,0,0,0,1-1v-1.683A7,7,0,1,0,1043,406Zm0,12a5,5,0,1,1,5-5A5.006,5.006,0,0,1,1043,418Z" transform="translate(-1008 -384)" fill="#42d15c"/>
+  <rect id="Rectangle_484" data-name="Rectangle 484" width="48" height="48" fill="none"/>
+  <circle id="Ellipse_178" data-name="Ellipse 178" cx="2" cy="2" r="2" transform="translate(34 26)" fill="#42d15c"/>
+  <g id="Group_845" data-name="Group 845" transform="translate(-1008 -384)">
+    <path id="Path_1095" data-name="Path 1095" d="M1031.5,407.383a11,11,0,0,0-1.463-.665h-.105a7,7,0,1,0-8.05.007A12,12,0,0,0,1014,416.892a1.011,1.011,0,0,0,1,1.108H1029a1,1,0,0,0,0-2h-3v-5a1,1,0,0,0-2,0v5h-7.845a10,10,0,0,1,9.8-8,10.227,10.227,0,0,1,4.627,1.117.981.981,0,0,0,.916-1.734ZM1025.9,406a5,5,0,1,1,5-5A5.006,5.006,0,0,1,1025.9,406Z" fill="#42d15c"/>
+    <path id="Path_1096" data-name="Path 1096" d="M1031,412h-2a1,1,0,0,0,0,2h2a1,1,0,0,0,0-2Z" fill="#42d15c"/>
+  </g>
+</svg>

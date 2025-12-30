@@ -1,0 +1,14 @@
+<svg id="SMS" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Group_854" data-name="Group 854" transform="translate(-1392 -384)">
+    <g id="Group_853" data-name="Group 853">
+      <path id="Path_1116" data-name="Path 1116" d="M1435,388h-16a1,1,0,0,0-1,1v18.992c0,2.125.932,2.456,1.868,1.5l3.132-3.5,12-.007a1,1,0,0,0,1-1V389A1,1,0,0,0,1435,388Zm-1,15.984-12,.008-2,2V390h14Z" fill="#42d15c"/>
+      <path id="Path_1117" data-name="Path 1117" d="M1414,396h-16a2,2,0,0,0-2,2v28a2,2,0,0,0,2,2h16a2,2,0,0,0,2-2V398A2,2,0,0,0,1414,396Zm-16,2h16v2h-16Zm16,28h-16v-4h16Zm-16-6V402h16v18Z" fill="#42d15c"/>
+      <rect id="Rectangle_500" data-name="Rectangle 500" width="10" height="2" rx="1" transform="translate(1422 392)" fill="#42d15c"/>
+      <rect id="Rectangle_501" data-name="Rectangle 501" width="10" height="2" rx="1" transform="translate(1422 396)" fill="#42d15c"/>
+      <rect id="Rectangle_502" data-name="Rectangle 502" width="6" height="2" rx="1" transform="translate(1422 400)" fill="#42d15c"/>
+    </g>
+    <path id="Path_1118" data-name="Path 1118" d="M1410,406v2h-8v-2h8m-9-2a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h10a1,1,0,0,0,1-1v-4a1,1,0,0,0-1-1Z" fill="#42d15c"/>
+    <path id="Path_1119" data-name="Path 1119" d="M1410,414v2h-8v-2h8m-9-2a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h10a1,1,0,0,0,1-1v-4a1,1,0,0,0-1-1Z" fill="#42d15c"/>
+  </g>
+  <rect id="Rectangle_503" data-name="Rectangle 503" width="48" height="48" fill="none"/>
+</svg>

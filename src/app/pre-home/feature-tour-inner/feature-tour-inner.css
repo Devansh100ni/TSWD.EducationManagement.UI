@@ -1,0 +1,7 @@
+.text-color-primary{
+    color: var(--primary);
+}
+
+.text-color-ardraGreen{
+    color: var(--ardraGreen);
+}
