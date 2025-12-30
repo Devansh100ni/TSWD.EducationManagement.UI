@@ -1,0 +1,52 @@
+.landing--features--modules {
+  background-color: var(--primary);
+
+  --s: 80px; /* control the size*/
+  --c1: var(--primary);
+  --c2: #00968772;
+
+  --_s: calc(2 * var(--s)) calc(2 * var(--s));
+  --_g: 35.36% 35.36% at;
+  --_c: #0000 66%, var(--c2) 68% 70%, #0000 72%;
+  background: radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s) / var(--_s),
+    radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s) / var(--_s),
+    radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0 / var(--_s),
+    radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0 / var(--_s),
+    repeating-conic-gradient(var(--c1) 0 25%, #0000 0 50%) 0 0 / var(--_s),
+    radial-gradient(var(--_c)) 0 calc(var(--s) / 2) / var(--s) var(--s) var(--c1);
+
+  position: relative;
+  box-shadow: inset 0 80px 80px -40px var(--primary), inset 0 -80px 80px -40px var(--primary);
+
+  
+}
+
+.landing--features--modules .card,
+.landing--features--modules .card .card-body {
+  position: relative;
+}
+
+.landing--features--modules .card {
+  min-height: 120%;
+}
+
+.landing--features--modules .card .card-body {
+  height: 100%;
+}
+
+.landing--features--modules .card a {
+  position: absolute;
+  bottom: 15px;
+
+  background-color: transparent !important;
+  border: 0.5px solid var(--ardraGreen) !important;
+  color: var(--circuitTeal) !important;
+
+  backdrop-filter: blur(5px);
+  box-shadow: 3px 3px 4px var(--ardraGreen);
+}
+
+.landing--features--modules .card a:hover {
+  background-color: var(--ardraGreen) !important;
+  color: var(--OffWhite) !important;
+}

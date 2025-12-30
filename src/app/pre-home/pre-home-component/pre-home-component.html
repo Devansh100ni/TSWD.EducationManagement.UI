@@ -1,0 +1,122 @@
+<main class="container-fluid">
+  <div class="bg-info row px-2" id="contect">
+    <div class="col-md-8 py-2 d-flex gap-3">
+      <div>
+        <a
+          href="mailto:devanshsoni2506@gmail.com?subject=Regarding%20Discussion&body=Hello%20Sir,"
+          class="text-white text-decoration-none"
+        >
+          <i class="bi bi-envelope-at"></i>
+          devanshsoni2506@gmail.com
+        </a>
+      </div>
+      <div>
+        <a href="tel:+918619056077" class="text-white text-decoration-none">
+          <i class="bi bi-telephone"></i>
+          +91 861 905 6077
+        </a>
+      </div>
+      <div>
+        <a href="https://wa.me/919649286509" class="text-white text-decoration-none">
+          <i class="bi bi-whatsapp"></i>
+          +91 964 928 6501
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end py-2">
+      <a href="login" class="btn" class="text-white text-decoration-none">Login</a>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary px-2" id="mainNavbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">
+        <span class="codeArdraSolutionLogo"></span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              About Product
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Feature Tour</a></li>
+              <li><a class="dropdown-item" href="#">Custom ERP</a></li>
+              <li><a class="dropdown-item" href="#">Student Information System</a></li>
+              <li><a class="dropdown-item" href="#">AI Integration</a></li>
+              <li><a class="dropdown-item" href="#">Multi School</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#About">Pricing</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Resources
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Blogs</a></li>
+              <li><a class="dropdown-item" href="#">Case Studies</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              About
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Our Story</a></li>
+              <li><a class="dropdown-item" href="#">Our Team</a></li>
+              <li><a class="dropdown-item" href="#">Our Customers</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Awards & Recognition</a></li> -->
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="btn btn-primary" href="#">Live Demo</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div data-scroll-section>
+    <router-outlet></router-outlet>
+  </div>
+</main>

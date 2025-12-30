@@ -1,0 +1,36 @@
+<div class="faq-section row justify-content-center my-5 py-5">
+  <div class="col-lg-8">
+    <h2 class="faq-section--title text-center mb-4">Frequently Asked Questions</h2>
+
+    <div class="accordion" id="faqAccordion">
+      @for (faq of faqs; track $index; let i = $index) {
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ i }}">
+          <button
+            class="accordion-button"
+            [class.collapsed]="i !== 0"
+            type="button"
+            data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#collapse' + i"
+            [attr.aria-expanded]="i === 0"
+            [attr.aria-controls]="'collapse' + i"
+          >
+            {{ faq.question }}
+          </button>
+        </h2>
+        <div
+          class="accordion-collapse collapse"
+          [class.show]="i === 0"
+          [attr.id]="'collapse' + i"
+          [attr.aria-labelledby]="'heading' + i"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

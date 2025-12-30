@@ -1,0 +1,128 @@
+.reviews-container {
+  /* background-color: var(--primary); */
+  color: var(--primary);
+  min-height: 100vh;
+
+  --s: 80px; /* control the size*/
+  --c1: transparent;
+  --c2: #0d253f27;
+
+  --_s: calc(2 * var(--s)) calc(2 * var(--s));
+  --_g: 35.36% 35.36% at;
+  --_c: #0000 66%, var(--c2) 68% 70%, #0000 72%;
+  background: radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s) / var(--_s),
+    radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s) / var(--_s),
+    radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0 / var(--_s),
+    radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0 / var(--_s),
+    repeating-conic-gradient(var(--c1) 0 25%, #0000 0 50%) 0 0 / var(--_s),
+    radial-gradient(var(--_c)) 0 calc(var(--s) / 2) / var(--s) var(--s) var(--c1);
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--primary), var(--ardraGreen), var(--circuitTeal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.review-container {
+  height: 40rem;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, white 10%, white 80%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, white 10%, white 80%, transparent);
+}
+
+.review-container-reverse {
+  -webkit-mask-image: linear-gradient(to top, transparent, white 10%, white 80%, transparent);
+  mask-image: linear-gradient(to top, transparent, white 10%, white 80%, transparent);
+}
+
+.review-card {
+  background-color: var(--primary);
+  border: 1px solid var(--SolutionGrey);
+  border-radius: 1rem;
+  box-shadow: 0px 10px 17px -15px var(--SolutionGrey), inset 2px 2px 20px 1px var(--SolutionGrey);
+  transition: transform 0.3s ease;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+}
+
+.stars {
+  color: #fbbf24;
+}
+
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+/* Define keyframes for the top-to-bottom scroll animation */
+@keyframes scroll-top-to-bottom {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Define keyframes for the bottom-to-top scroll animation */
+@keyframes scroll-bottom-to-top {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Class to apply the top-to-bottom animation */
+.animate-scroll-t2b {
+  animation: scroll-top-to-bottom 60s linear infinite;
+}
+
+/* Class to apply the bottom-to-top animation */
+.animate-scroll-b2t {
+  animation: scroll-bottom-to-top 60s linear infinite;
+}
+
+/* Utility class to pause the animation on hover */
+.reviews-wrapper:hover .group-hover-pause {
+  animation-play-state: paused;
+}
+
+@media (max-width: 767.98px) {
+  .d-md-block {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .d-lg-block {
+    display: none !important;
+  }
+}

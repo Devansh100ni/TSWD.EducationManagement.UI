@@ -1,0 +1,166 @@
+<div >
+  <div class="landing--hero--section row pt-5">
+    <div class="col-md-5">
+      <div class="landing--hero--content px-4">
+        <h1 class="landing--hero--title mb-4">
+          Revolutionize Education Management with CodeArdra Solutions
+        </h1>
+        <p class="landing--hero--desc mb-4">
+          Streamline operations, enhance learning experiences, and empower institutions with our
+          cutting-edge Education Management System.
+        </p>
+        <a href="#" class="btn btn-primary btn-lg">Live Demo</a>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <section>
+        <div class="head d-none">
+          <div class="controls">
+            <button #prev id="prev" class="nav-btn-carousal" aria-label="Prev" (click)="go(-1)">
+              ‹
+            </button>
+
+            <button #next id="next" class="nav-btn-carousal" aria-label="Next" (click)="go(1)">
+              ›
+            </button>
+          </div>
+        </div>
+
+        <div class="slider" #wrap>
+          <div
+            class="track"
+            id="track"
+            #track
+            (touchstart)="onTouchStart($event)"
+            (touchend)="onTouchEnd($event)"
+          >
+            @for (item of cards; track $index; let i = $index) {
+            <article
+              class="project-card"
+              #card
+              [attr.active]="i === current ? '' : null"
+              (mouseenter)="onHover(i)"
+              (click)="activate(i, true)"
+            >
+              <img class="project-card__bg" [src]="item.bg" alt="" />
+
+              <div class="project-card__content">
+                <img class="project-card__thumb" [src]="item.thumb" alt="" />
+
+                <div>
+                  <h3 class="project-card__title">{{ item.title }}</h3>
+                  <p class="project-card__desc">{{ item.desc }}</p>
+                  <button class="project-card__btn">Details</button>
+                </div>
+              </div>
+            </article>
+            }
+          </div>
+        </div>
+
+        <div class="dots" id="dots" #dots></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="landing--brand--sub--section">
+    <div class="row justify-content-between px-4 py-4">
+      <div class="col-3 d-flex align-items-center justify-content-center">
+        <img src="svgs/school.svg" alt="school" class="img img-fluid me-2" />
+        <h6 class="text-white m-0">400+ Schools & Institutions</h6>
+      </div>
+      <div class="col-3 d-flex align-items-center justify-content-center">
+        <img src="svgs/student.svg" alt="student" class="img img-fluid" />
+        <h6 class="text-white m-0">1 Million+ Students Managed</h6>
+      </div>
+      <div class="col-3 d-flex align-items-center justify-content-center">
+        <img src="svgs/uptime.svg" alt="uptime" class="img img-fluid" />
+        <h6 class="text-white m-0">99.9% Uptime Guarantee</h6>
+      </div>
+      <div class="col-3 d-flex align-items-center justify-content-center">
+        <img src="svgs/support.svg" alt="support" class="img img-fluid me-1" />
+        <h6 class="text-white m-0">24/7 Customer Support</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing--why--this p-5">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <img
+          src="svgs/computer.svg"
+          alt="education management system illustration"
+          class="img img-fluid"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <div class="landing--why--this--content px-4">
+          <h2 class="landing--why--this--title mb-4">
+            Why Choose Our Education Management System?
+          </h2>
+          <ul class="landing--why--this--list">
+            <li class="mb-3">
+              <strong class="landing--why--this--list--item">All-in-One Smart Platform:</strong>
+              Manage admissions, academics, attendance, examinations, fees, and alumni from a
+              single, unified dashboard.
+            </li>
+
+            <li class="mb-3">
+              <strong class="landing--why--this--list--item">AI-Powered Insights:</strong>
+              Leverage intelligent analytics, automated reporting, and smart recommendations to make
+              data-driven decisions faster.
+            </li>
+
+            <li class="mb-3">
+              <strong class="landing--why--this--list--item">Custom ERP Built for You:</strong>
+              Our system adapts to your institution’s workflows — not the other way around. Fully
+              customizable modules for schools, colleges, and universities.
+            </li>
+
+            <li class="mb-3">
+              <strong class="landing--why--this--list--item"
+                >Multi-School & Multi-Branch Support:</strong
+              >
+              Seamlessly manage multiple campuses or institutions from one centralized system with
+              role-based access control.
+            </li>
+
+            <li class="mb-3">
+              <strong class="landing--why--this--list--item"
+                >Simple & User-Friendly Experience:</strong
+              >
+              Clean, intuitive interfaces designed for administrators, teachers, students, and
+              parents — minimal training required.
+            </li>
+
+            <li class="mb-3">
+              <strong class="landing--why--this--list--item">Secure & Reliable:</strong>
+              Enterprise-grade security, regular backups, and compliance with data protection
+              standards to keep your information safe.
+            </li>
+
+            <li class="mb-3">
+              <strong class="landing--why--this--list--item">Scalable & Future-Ready:</strong>
+              Grow without limits. Our platform scales effortlessly as your institution expands and
+              integrates easily with future technologies.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-modules-inner-landing></app-modules-inner-landing>
+
+  <app-school-management-inner-landing></app-school-management-inner-landing>
+
+  <app-reviews-inner-landing></app-reviews-inner-landing>
+
+  <app-faqs-inner-landing></app-faqs-inner-landing>
+  
+  <app-start-today-inner-landing></app-start-today-inner-landing>
+
+  <app-footer-inner-landing></app-footer-inner-landing>
+</div>
