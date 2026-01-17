@@ -10,17 +10,17 @@ export class AddOnModulesFeatureInner {
   columns = 3;
 
   coreModules = [
-    { title: 'Custom & Bulk Import', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
-    { title: 'Custom Reports', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
-    { title: 'Gallery', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
-    { title: 'Discussion', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
-    { title: 'Data Export', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
+    { title: 'Custom & Bulk Import', icon: 'addon-modules/bulk-import.svg', href: '#' },
+    { title: 'Custom Reports', icon: 'addon-modules/custom-report.svg', href: '#' },
+    { title: 'Gallery', icon: 'addon-modules/gallery.svg', href: '#' },
+    { title: 'Discussion', icon: 'addon-modules/discussion.svg', href: '#' },
+    { title: 'Data Export', icon: 'addon-modules/export.svg', href: '#' },
     {
       title: 'Student Assignment Management',
-      icon: 'addon-modules/studentparentslogin.svg',
+      icon: 'addon-modules/assignment.svg',
       href: '#',
     },
-    { title: 'Google SSO', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
+    { title: 'Google SSO', icon: 'addon-modules/sso.svg', href: '#' },
     { title: 'Form Builder', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
     { title: 'Reminder', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
     { title: 'Enquiry & Registration', icon: 'addon-modules/studentparentslogin.svg', href: '#' },
