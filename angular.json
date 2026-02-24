@@ -31,7 +31,8 @@
             "scripts": [
               "node_modules/locomotive-scroll/dist/locomotive-scroll.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            ],
+            "outputPath": "dist/TSWD.EducationManagement.UI"
           },
           "configurations": {
             "production": {
@@ -91,6 +92,9 @@
             ],
             "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
