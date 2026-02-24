@@ -140,7 +140,7 @@ export class TenantUsersComponent implements OnInit {
   onSubmit(modal: any) {
     if (this.form.valid) {
       this.loader.show();
-      this.userService.createUpdateUser(this.form.value).subscribe(() => {
+      this.userService.createUpdateUser(this.form.getRawValue()).subscribe(() => {
         this.loadUsers();
         this.loader.hide();
         this.closeModal(this.modalRef, 'Saved Data');
