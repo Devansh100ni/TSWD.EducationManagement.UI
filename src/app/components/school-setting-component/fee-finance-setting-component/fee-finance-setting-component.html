@@ -1,1 +1,46 @@
-<p>fee-finance-setting-component works!</p>
+<div class="settings-container p-4">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800 border-b pb-2 border-gray-300">Fee & Finance Settings</h2>
+
+  <div class="mb-6 bg-white p-4 rounded shadow">
+    <h3 class="text-lg font-bold mb-2">Fee Types</h3>
+    <button (click)="addFeeType()" class="mb-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">Add Fee Type</button>
+    <div *ngFor="let item of settings.feeTypes; let i = index" class="flex gap-2 mb-2 items-center">
+      <input [(ngModel)]="item.feeName" placeholder="Fee Name" class="border p-2 rounded flex-1">
+      <select [(ngModel)]="item.frequency" class="border p-2 rounded flex-1">
+        <option value="Monthly">Monthly</option>
+        <option value="Quarterly">Quarterly</option>
+        <option value="Annual">Annual</option>
+      </select>
+      <button (click)="removeFeeType(i)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
+    </div>
+  </div>
+
+  <div class="mb-6 bg-white p-4 rounded shadow">
+    <h3 class="text-lg font-bold mb-2">Fine Rules</h3>
+    <button (click)="addFineRule()" class="mb-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">Add Fine Rule</button>
+    <div *ngFor="let item of settings.fineRules; let i = index" class="flex gap-2 mb-2 items-center">
+      <select [(ngModel)]="item.fineType" class="border p-2 rounded flex-1">
+        <option value="Percentage">Percentage</option>
+        <option value="Amount">Amount</option>
+      </select>
+      <input type="number" [(ngModel)]="item.value" placeholder="Value" class="border p-2 rounded flex-1">
+      <button (click)="removeFineRule(i)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
+    </div>
+  </div>
+
+  <div class="mb-6 bg-white p-4 rounded shadow">
+    <h3 class="text-lg font-bold mb-2">Auto Reminders</h3>
+    <button (click)="addReminder()" class="mb-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">Add Reminder</button>
+    <div *ngFor="let item of settings.feeReminders; let i = index" class="flex gap-2 mb-2 items-center">
+      <input type="number" [(ngModel)]="item.reminderFrequencyDays" placeholder="Days" class="border p-2 rounded flex-1">
+      <label class="flex items-center gap-1">
+        <input type="checkbox" [(ngModel)]="item.isActive"> Active
+      </label>
+      <button (click)="removeReminder(i)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
+    </div>
+  </div>
+
+  <button (click)="saveAll()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded shadow-lg transition duration-200">
+    Save Fee Settings
+  </button>
+</div>

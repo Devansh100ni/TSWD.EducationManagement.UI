@@ -1,1 +1,116 @@
-<p>academic-setting-component works!</p>
+<div class="container mt-4" *ngIf="academicSettings">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2><i class="bi bi-gear-wide-connected"></i> Academic Settings</h2>
+    </div>
+    <div class="card-body">
+      
+      <!-- Classes -->
+      <div class="mb-4 bg-light p-3 rounded">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Classes</h4>
+          <button class="btn btn-success btn-sm" (click)="addClass()">Add Class</button>
+        </div>
+        <div *ngFor="let item of academicSettings.schoolClasses; let i = index" class="d-flex gap-2 mb-2">
+          <input [(ngModel)]="item.className" class="form-control" [disabled]="!item.isEditing" placeholder="Class Name">
+          <button *ngIf="item.isEditing" (click)="toggleEdit(item)" class="btn btn-primary btn-sm">Save</button>
+          <button *ngIf="!item.isEditing" (click)="toggleEdit(item)" class="btn btn-secondary btn-sm">Edit</button>
+          <button (click)="removeClass(i)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+
+      <!-- Sections -->
+      <div class="mb-4 bg-light p-3 rounded">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Sections</h4>
+          <button class="btn btn-success btn-sm" (click)="addSection()">Add Section</button>
+        </div>
+        <div *ngFor="let item of academicSettings.schoolSections; let i = index" class="d-flex gap-2 mb-2">
+          <select [(ngModel)]="item.appClassId" class="form-select" [disabled]="!item.isEditing">
+            <option *ngFor="let c of academicSettings.schoolClasses" [value]="c.id">{{c.className}}</option>
+          </select>
+          <input [(ngModel)]="item.sectionName" class="form-control" [disabled]="!item.isEditing" placeholder="Section Name">
+          <input [(ngModel)]="item.sectionOrder" type="number" class="form-control" [disabled]="!item.isEditing" placeholder="Order">
+          <button *ngIf="item.isEditing" (click)="toggleEdit(item)" class="btn btn-primary btn-sm">Save</button>
+          <button *ngIf="!item.isEditing" (click)="toggleEdit(item)" class="btn btn-secondary btn-sm">Edit</button>
+          <button (click)="removeSection(i)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+
+      <!-- Subjects -->
+      <div class="mb-4 bg-light p-3 rounded">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Subjects</h4>
+          <button class="btn btn-success btn-sm" (click)="addSubject()">Add Subject</button>
+        </div>
+        <div *ngFor="let item of academicSettings.schoolSubjects; let i = index" class="d-flex gap-2 mb-2">
+          <select [(ngModel)]="item.classId" class="form-select" [disabled]="!item.isEditing">
+            <option *ngFor="let c of academicSettings.schoolClasses" [value]="c.id">{{c.className}}</option>
+          </select>
+          <input [(ngModel)]="item.subjectName" class="form-control" [disabled]="!item.isEditing" placeholder="Subject Name">
+          <label class="d-flex align-items-center gap-1">
+            <input type="checkbox" [(ngModel)]="item.isOptional" [disabled]="!item.isEditing"> Optional
+          </label>
+          <button *ngIf="item.isEditing" (click)="toggleEdit(item)" class="btn btn-primary btn-sm">Save</button>
+          <button *ngIf="!item.isEditing" (click)="toggleEdit(item)" class="btn btn-secondary btn-sm">Edit</button>
+          <button (click)="removeSubject(i)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+
+      <!-- School Rules -->
+      <div class="mb-4 bg-light p-3 rounded">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>School Rules</h4>
+          <button class="btn btn-success btn-sm" (click)="addRule()">Add Rule</button>
+        </div>
+        <div *ngFor="let item of academicSettings.schoolRules; let i = index" class="d-flex gap-2 mb-2">
+          <input [(ngModel)]="item.ruleName" class="form-control" [disabled]="!item.isEditing" placeholder="Rule Name (e.g. Attendance)">
+          <button *ngIf="item.isEditing" (click)="toggleEdit(item)" class="btn btn-primary btn-sm">Save</button>
+          <button *ngIf="!item.isEditing" (click)="toggleEdit(item)" class="btn btn-secondary btn-sm">Edit</button>
+          <button (click)="removeRule(i)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+
+      <!-- Promotion Rules -->
+      <div class="mb-4 bg-light p-3 rounded">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Promotion Rules</h4>
+          <button class="btn btn-success btn-sm" (click)="addPromotionRule()">Add Promotion Rule</button>
+        </div>
+        <div *ngFor="let item of academicSettings.schoolPromotionRules; let i = index" class="d-flex gap-2 mb-2">
+          <select [(ngModel)]="item.ruleId" class="form-select" [disabled]="!item.isEditing">
+            <option *ngFor="let r of academicSettings.schoolRules" [value]="r.id">{{r.ruleName}}</option>
+          </select>
+          <select [(ngModel)]="item.filterId" class="form-select" [disabled]="!item.isEditing">
+            <option *ngFor="let f of academicSettings.schoolFilters" [value]="f.id">{{f.filterKey}}</option>
+          </select>
+          <input [(ngModel)]="item.promotionValue" class="form-control" [disabled]="!item.isEditing" placeholder="Value">
+          <label class="d-flex align-items-center gap-1">
+            <input type="checkbox" [(ngModel)]="item.isPercent" [disabled]="!item.isEditing"> %
+          </label>
+          <button *ngIf="item.isEditing" (click)="toggleEdit(item, 'promotionId')" class="btn btn-primary btn-sm">Save</button>
+          <button *ngIf="!item.isEditing" (click)="toggleEdit(item, 'promotionId')" class="btn btn-secondary btn-sm">Edit</button>
+          <button (click)="removePromotionRule(i)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </div>
+
+      <button (click)="saveSettings()" class="btn btn-primary w-100 mb-4">Save All Academic Settings</button>
+
+      <!-- Master Admin Filters -->
+      <div *ngIf="isMasterAdmin" class="mt-5 border-top pt-4">
+        <h3 class="text-danger">Master Admin Area - Global Filters</h3>
+        <button class="btn btn-success btn-sm mb-2" (click)="addFilter()">Add Filter</button>
+        <div *ngFor="let item of academicSettings.schoolFilters; let i = index" class="d-flex gap-2 mb-2">
+          <input [(ngModel)]="item.filterKey" class="form-control" [disabled]="!item.isEditing" placeholder="Filter Key (e.g. >)">
+          <input [(ngModel)]="item.filterValue" class="form-control" [disabled]="!item.isEditing" placeholder="Filter Value Description">
+          <button *ngIf="item.isEditing" (click)="toggleEdit(item)" class="btn btn-primary btn-sm">Save</button>
+          <button *ngIf="!item.isEditing" (click)="toggleEdit(item)" class="btn btn-secondary btn-sm">Edit</button>
+          <button (click)="removeFilter(i)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+        <button (click)="saveFilters()" class="btn btn-danger w-100 mt-2">Save Global Filters</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div *ngIf="!academicSettings" class="p-4">Loading academic settings...</div>
